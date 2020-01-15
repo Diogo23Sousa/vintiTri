@@ -1,0 +1,135 @@
+/* CONTAINER */
+.container {
+  width:100%;
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top: 30px;
+}
+
+/* SECTION */
+.clean-block {
+  padding-bottom:50px;
+}
+
+/* TITLE */
+.text-info {
+  color:#3b99e0!important;
+}
+
+/* SIZE TABLE */
+a:hover {
+  text-decoration:underline;
+}
+
+/* SELECT SIZE AND COLOR INPUTS */
+.clean-pricing-item {
+  text-align:center;
+}
+
+/* CARD STYLE */
+.clean-pricing-item {
+  background-color:rgba(226, 225, 225, 0.068);
+  box-shadow:0 2px 10px rgba(0,0,0,.075);
+  border-top:2px solid #5ea4f3;
+  padding:13px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* CARROUSEL */
+.carousel-inner {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  display:block;
+}
+
+/* SIZE TABLE BLOCK */
+.d-block {
+  text-align:center;
+  margin-bottom: 20px;
+}
+
+img {
+  vertical-align:middle;
+  border-style:none;
+}
+
+
+.carousel-item {
+  position:relative;
+  display:none;
+  -ms-flex-align:center;
+  align-items:center;
+  width:100%;
+  transition:-webkit-transform .6s ease;
+  transition:transform .6s ease;
+  transition:transform .6s ease,-webkit-transform .6s ease;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  -webkit-perspective:1000px;
+  perspective:1000px;
+}
+
+.carousel-control-next {
+  right:0;
+}
+
+/* CARROUSEL INDICATORS BELOW IMAGE */
+.carousel-indicators {
+  position:absolute;
+  right:0;
+  bottom:10px;
+  left:0;
+  z-index:15;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-pack:center;
+  justify-content:center;
+  padding-left:0;
+  margin-right:15%;
+  margin-left:15%;
+  list-style:none;
+}
+
+.carousel-indicators .active {
+  background-color:#fff;
+}
+
+.carousel-indicators li {
+  position:relative;
+  -ms-flex:0 1 auto;
+  flex:0 1 auto;
+  width:30px;
+  height:3px;
+  margin-right:3px;
+  margin-left:3px;
+  text-indent:-999px;
+  background-color:hsla(0,0%,100%,.5);
+}
+
+/* BUTTONS */
+.btn {
+  display:inline-block;
+  font-weight:400;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:middle;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  font-size:1rem;
+  line-height:1.5;
+  border-radius:0.23rem;
+  transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn:focus, .btn:hover {
+  text-decoration:none;
+}

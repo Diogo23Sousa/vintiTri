@@ -1,0 +1,21 @@
+.clean-block.dark {
+  background-color:#f6f6f6b0;
+}
+
+.clean-block {
+  padding-bottom:50px;
+}
+
+/* PADDING */
+.clean-block .block-heading {
+  padding-top:50px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+/* CARD */
+.card-body {
+  -ms-flex:1 1 auto;
+  flex:1 1 auto;
+  padding:1.25rem;
+}

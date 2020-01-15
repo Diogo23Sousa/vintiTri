@@ -1,0 +1,135 @@
+/***************************************************** 1st PAGE *****************************************************/
+/* BACKGROUND IMAGE */
+@media (min-width:576px) {
+  .clean-block.clean-hero {
+    min-height:680px;
+  }
+}
+
+@media (max-width: 575px) {
+  .clean-block.clean-hero {
+    min-height: 580px;
+  }
+}
+
+.clean-block.clean-hero {
+  position:relative;
+  text-align:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-align:center;
+  align-items:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  padding-bottom:0;
+}
+
+/* TEXT ON THE TOP OF THE IMAGE */
+.clean-block.clean-hero .text {
+  max-width:640px;
+  font-weight: bolder;
+  color:#fff;
+  z-index:2;
+  padding:40px 15px;
+  text-shadow:1px 1px 1px rgba(0,0,0,.15);
+}
+
+.clean-block.clean-hero h2 {
+  margin-bottom:30px;
+}
+
+/* BUTTON ON THE TOP OF THE IMAGE - BELONGS TO PREVIOUS CLASS */
+.btn-outline-light.focus, .btn-outline-light:focus {
+  box-shadow:0 0 0 .2rem rgba(248,249,250,.5);
+}
+
+.btn-outline-light:hover {
+  color:#212529;
+  background-color:#f8f9fa;
+  border-color:#f8f9fa;
+}
+
+.btn.focus, .btn:focus {
+  outline:0;
+  box-shadow:0 0 0 .2rem rgba(0,123,255,.25);
+}
+
+.btn-group-lg > .btn, .btn-lg {
+  padding:.5rem 1rem;
+  font-size:1.25rem;
+  line-height:1.5;
+  border-radius:.3rem;
+}
+
+.btn-outline-light {
+  color:#f8f9fa;
+  background-color:transparent;
+  background-image:none;
+  border-color:#f8f9fa;
+}
+/***************************************************** 2nd PAGE *****************************************************/
+.clean-block.clean-info {
+  padding-left:20px;
+  padding-right:20px;
+  text-align:center;
+  margin-top: 100px;
+  padding-bottom:100px;
+}
+
+@media (min-width:576px) {
+  .clean-block {
+    padding-bottom:100px;
+  }
+}
+
+.secondPageTitle {
+  margin-bottom: 50px;
+}
+
+/***************************************************** 3rd PAGE *****************************************************/
+/* CONTAINER */
+.clean-block .block-heading {
+  padding-top:50px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+.features-clean .item .icon {
+  font-size:40px;
+  color:#1485ee;
+  float:left;
+  margin-left:-65px;
+}
+
+/***************************************************** 4th PAGE *****************************************************/
+
+/* CARDS */
+.clean-card .info {
+  padding:30px;
+}
+
+/* CARD TEXT BELOW IMAGE TITLE */
+/* TITLE */
+.clean-card h4 {
+  font-weight:600;
+  font-size:1em;
+}
+
+.card-title {
+  margin-bottom:.75rem;
+}
+
+/* SUBTITLE */
+.card-subtitle, .card-text:last-child {
+  margin-bottom:0;
+}
+
+.clean-card p {
+  opacity:.8;
+  font-size:.85em;
+  margin-bottom:.9em;
+}
+
+

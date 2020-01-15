@@ -1,0 +1,18 @@
+.title {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.myImagesStyle {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.myButtons {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 100px;
+  width: 60%;
+}

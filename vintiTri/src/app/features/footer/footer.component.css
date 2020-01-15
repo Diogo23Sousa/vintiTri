@@ -1,0 +1,78 @@
+/* FOOTER */
+.page-footer {
+  background-color:#2b2f31;
+  padding-top:30px;
+  text-align:center;
+  display:block;
+}
+
+/* TITLE H5 */
+.page-footer h5 {
+  color:rgb(255, 255, 255);
+  font-size:18px;
+  font-weight:700;
+  margin-top:30px;
+}
+
+/* ICONS */
+.page-footer ul {
+  list-style-type:none;
+  padding-left:0;
+  line-height:1.7;
+}
+
+/* LIST ITEMS COLOR */
+.page-footer.dark a {
+  color: rgb(165, 161, 161);
+  text-decoration: none;
+}
+
+/* SOCIAL ICONS */
+.clean-block.add-on.social-icons .icons i {
+  line-height:45px;
+}
+
+.clean-block.add-on.social-icons .icons a {
+  font-size:24px;
+  margin-right:4px;
+  color:#6aacf3;
+  border:1px solid;
+  opacity:.75;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+  display:inline-block;
+  text-align:center;
+}
+
+.clean-block.add-on {
+  padding:50px 0;
+  text-align:center;
+  display:flex;
+  -ms-flex-align:center;
+  align-items:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -ms-flex-direction:column;
+  flex-direction:column;
+}
+
+/* FOOTER COPYRIGHT */
+.page-footer.dark .footer-copyright {
+  background-color:#222425;
+  border-color:#222425;
+}
+
+.page-footer .footer-copyright {
+  background-color:#fff;
+  padding-top:3px;
+  padding-bottom:3px;
+  text-align:center;
+  margin-top:50px;
+  border:1px solid #ededed;
+}
+
+/* VINTI TRI EMAIL TEXT */
+.page-footer.dark .footer-copyright p {
+  color:#ccc;
+}
