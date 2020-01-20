@@ -1,28 +1,33 @@
+<div class="alert alert-success text-center" [style.display]='messageWasSent' >Message sent!</div>
+<div class="alert alert-danger text-center" [style.display]='messageWasNotSent'>Missing one or more Fields.</div>
 <section class="clean-block clean-form dark" style="background-color:rgb(255,255,255);">
     <div class="block-heading">
             <h4 class="text-center text-info">CONTACT US</h4>
             <form><label class="float-left">Choose the Subject</label>
                 <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" [(ngModel)]="subjectToContact" name="subjectToContact">
                         <optgroup label="Choose the subject">
-                            <option value="1">Shipping Information</option>
-                            <option value="2">Refund Policy</option>
-                            <option value="3">Payment Information</option>
-                            <option value="4">Other</option>
+                            <option value="Shipping Information">Shipping Information</option>
+                            <option value="Refund Policy">Refund Policy</option>
+                            <option value="Payment Information">Payment Information</option>
+                            <option value="Other">Other</option>
                         </optgroup>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="float-left">Your Name:</label>
-                    <input class="form-control" type="text" placeholder="e.g. John Wick"></div>
-        <div class="form-group"><label class="float-left">Email: *</label>
-            <input class="form-control" type="text" required="" placeholder="example@email.com" inputmode="email">
-        </div>
-        <div class="form-group"><label class="float-left">Your Message:</label>
-            <textarea class="form-control" required="" placeholder="Maximum of 500 letters"></textarea>
+                    <input class="form-control" type="text" [(ngModel)]="nameToContact" name="nameToContact" placeholder="e.g. John Wick"></div>
+        <div class="form-group">
+            <label class="float-left">Your Email: *</label>
+            <input class="form-control" type="email" [(ngModel)]="emailToContact" name="emailToContact" required="" placeholder="example@email.com" inputmode="email">
+            <div class="text-center alert-danger" [style.display]='emailIsNotValid'>Invalid Email.</div>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block" type="button" (click)="contactUs()">Send</button></div>
+            <label class="float-left">Your Message:</label>
+            <textarea class="form-control" type="text" [(ngModel)]="messageToContact" name="messageToContact" required="" placeholder="Maximum of 500 letters"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="button" (click)="sendContactMessage()">Send</button></div>
         </form>
         </div>
 </section>

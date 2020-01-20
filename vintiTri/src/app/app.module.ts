@@ -20,6 +20,8 @@ import { SizeCalculatorComponent } from './pages/size-calculator/size-calculator
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { ShoppingService } from './services/shopping.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SizeCalculatorComponent,
     CheckoutComponent,
     FeedbackComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -50,9 +51,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSelectModule,
     MatIconModule,
     BrowserAnimationsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
