@@ -1,26 +1,35 @@
     <div class="container">
         <h4 class="text-info title">SHOPPING CART</h4>
-            <table class="table">
+        <hr *ngIf="isBasketEmpty">
+            <div class="emptyBasket" *ngIf="isBasketEmpty">Your shopping cart is empty.</div>
+            <table class="table" *ngIf="!isBasketEmpty">
                 <thead>
                     <tr>
                         <th>ITEMS</th>
+                        <th>COLOR</th>
+                        <th>SIZE</th>
                         <th>PRICE</th>
-                        <th>QUANTITY</th>
                         <th>TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>29.99€</td>
-                        <td>x 1 
-                            <button>+</button>
-                            <button>-</button>
-                        </td>
-                        <td>29.99€</td>
+                    <tr *ngFor="let order of totalOrder; let i = index">
+                    <td>{{order.model}} {{order.type}}</td>
+                    <td>{{order.color}}</td>
+                    <td> {{order.size}} </td>
+                    <td>{{order.price}}€</td>
                     </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    <td>{{totalValue}}€</td>
+                        </tr>
                 </tbody>
             </table>
+            <hr *ngIf="isBasketEmpty">
         <div class="myImagesStyle">
         <h6>Accepted Payment Methods</h6>
             <img class="img-fluid" src="../../../assets/my-project-images/americanexpress.png" width="30">
@@ -31,7 +40,7 @@
             <img class="img-fluid" src="../../../assets/my-project-images/paypal.svg" width="30" />
         </div>
         <div class="myButtons">
-                <button class="btn btn-outline-primary btn-block btn-sm" routerLink="/checkout"> CHECKOUT </button>
+                <button class="btn btn-outline-primary btn-block btn-sm" routerLink="/checkout" *ngIf="!isBasketEmpty"> CHECKOUT </button>
                 <button class="btn btn-outline-primary btn-block btn-sm" routerLink="/t-shirts"> CONTINUE SHOPPING </button>
         </div>  
     </div>

@@ -9,7 +9,7 @@
                         <div class="col-md-5 col-lg-4" *ngFor="let tshirt of tShirtCollection; let i = index" id={{i}}>
                             <div class="clean-pricing-item">
                             <h6 class="text-center">{{tshirt.model}} {{tshirt.type}}</h6>
-                            <div class="carousel" data-ride="carousel" id="carousel{{i}}">
+                            <div class="carousel slide" data-ride="carousel" id="carousel{{i}}">
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
                                             <img class="w-100 d-block" src={{tshirt.images[0]}} alt="Slide Image" height="230">
@@ -29,20 +29,20 @@
                                         <li data-target="#carousel" data-slide-to="1"></li>
                                     </ol>
                                 </div>
-                            <h5 class="text-center text-dark">{{tshirt.price}}</h5>
+                            <h5 class="text-center text-dark">{{tshirt.price}}€</h5>
                             
-                                <select class="d-inline-block flex-grow-0 flex-shrink-0">
+                            <select class="d-inline-block flex-grow-0 flex-shrink-0" id="{{tshirt.model}}.color">
                                     <optgroup label="Select the color">
-                                    <option *ngFor="let color of tshirt.colors" id="{{tshirt.model}}.color" value={{color}}>{{color}}</option>
+                                    <option *ngFor="let color of tshirt.colors; let i = index" value={{color}} > {{color}}</option>
                                 </optgroup></select>
-                                <select class="flex-grow-0 flex-shrink-0"  name="Choose the color">
+                            <select class="flex-grow-0 flex-shrink-0" id="{{tshirt.model}}.size">
                                     <optgroup label="Select your size">
-                                        <option *ngFor="let size of tshirt.sizes" id="size" name="size" value={{size}}> {{size}} </option>
+                                        <option *ngFor="let size of tshirt.sizes; let i = index" value={{size}} [selected]="i == 2"> {{size}} </option>
                                     </optgroup>
                                     </select>
                                     <hr>
-                                    <a class="btn btn-outline-primary btn-block btn-sm" role="button" (click)="buyItNow()" routerLink="/shopping-cart">BUY NOW</a>
-                                    <button class="btn btn-outline-primary active btn-block btn-sm" (click)="addToCart(tshirt.type, tshirt.model, tshirt.price, tshirt.colors.color, tshirt.sizes.size)" type="button">ADD TO CART</button>         
+                                    <a class="btn btn-outline-primary btn-block btn-sm" role="button" (click)="buyItNow(tshirt.type, tshirt.model, tshirt.price)" routerLink="/shopping-cart">BUY NOW</a>
+                                    <button class="btn btn-outline-primary active btn-block btn-sm" (click)="addToCart(tshirt.type, tshirt.model, tshirt.price)" type="button">ADD TO CART</button>         
                         </div>
                     </div>
         </div>

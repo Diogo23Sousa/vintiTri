@@ -1,38 +1,72 @@
-<section class="clean-block slider">
-    <div class="container">
-        <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox"></div>
-            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button"
-                    data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
-            <ol class="carousel-indicators"></ol>
-        </div>
-    </div>
-</section>
+<div class="alert alert-success text-center" [style.display]='orderSuccess' >Your purchase is complete! You'll receive your order in 5 working days.</div>
+<div class="alert alert-danger text-center" [style.display]='orderFail'>Missing one or more Fields.</div>
 <div class="register-photo" style="background-color:rgb(255,255,255);">
-    <h4 class="text-center text-info">CHECKOUT</h4>
-    <div class="form-container">
-        <form method="post">
-            <div class="form-group"><label></label><label class="float-left">First and Last Name:</label><input class="form-control" type="text" placeholder="e.g. John Wick"></div>
-            <div class="form-group"><label></label><label class="float-left">&nbsp;Email Adress:*</label><input class="form-control" type="email" placeholder="e.g. email@example.com" id="checkoutEmail"></div>
-            <div class="form-group"><label></label><label class="float-left">Phone Number:*</label><input class="form-control" type="text" placeholder="e.g. +351 96XXXXXXX" id="checkoutPhoneNumber"></div>
-            <div class="form-group"><label></label><label class="float-left">Adress Line:*</label><input class="form-control" type="text" placeholder="e.g. Rua Exemplo, nº23, 23ºA" id ="adressLine"></div>
-            <div class="form-group"><label></label><label class="float-left">ZIP-CODE*</label><input class="form-control" type="text" placeholder="e.g. 2323-023" id="zipCode"></div>
-            <div class="form-group"><label></label><label class="float-left">City:*</label><input class="form-control" type="text" placeholder="e.g. Lisbon" id="city"></div><label class="float-left">Country:*</label><input class="form-control" type="text" placeholder="e.g. Portugal" id="country">
-            <div
-                class="form-group"><label></label><label class="float-left">Card Number:*</label><input class="form-control" type="text" placeholder="e.g. 0000 0000 0000 0000" id="cardNumber"></div>
-    <div class="form-group"><label></label><label class="float-left">Expiration Date:*</label><input class="form-control" type="text" placeholder="e.g. 07/23" id="expirationDate"></div>
-    <div class="form-group"><label></label><label class="float-left">CVC:*</label><input class="form-control" type="text" placeholder="e.g. 230" id="cvc" ></div>
-    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" id ="correctInformation" value="false" onclick="informationIsCorrect()" >The information i'm giving is correct.</label></div><span>&nbsp;</span><span>&nbsp;</span>
-    <h5 class="text-center text-info">&nbsp;
-        <img class="img-fluid" src="../../../assets/my-project-images/visa.svg" width="30" />
-        <img class="img-fluid" src="../../../assets/my-project-images/maestro.png" width="30" />
-        <img class="img-fluid" src="../../../assets/my-project-images/mastercard.svg" width="30" />
-        <img class="img-fluid" src="../../../assets/my-project-images/americanexpress.png" width="30" />
-        <img class="img-fluid" src="../../../assets/my-project-images/paypal.svg" width="30" />
-    </h5>
-    <div class="form-group"><button class="btn btn-outline-success active btn-block" type="button" onclick="paymentConfirmation()"><strong>CONFIRM THE PAYMENT</strong></button></div>
-    </form>
+    <h4 class="text-center text-info">CHECKOUT</h4> <br>
+        <div class="form-container">
+            <div class="col-md-6 col-xs-12 myColStyle">
+                <!-- 1st row -->
+                <div class="form-group"><label class="float-left">First and Last Name:</label>
+                <input class="form-control" type="text" name="firstAndLastName" [(ngModel)]="firstAndLastName" [disabled]="isBasketEmpty" placeholder="e.g. John Wick">
+                </div>
+
+                 <!-- 2nd row -->
+                 <div class="form-group"><label class="float-left">Email Adress:*</label>
+                    <input class="form-control" [ngClass]="isEmailValid == false ? 'invalidInput': ''" type="email"  name="email" [(ngModel)]="email" [disabled]="isBasketEmpty" placeholder="e.g. email@example.com">
+                </div>
+
+                <!-- 3rd row -->
+                <div class="form-group"><label class="float-left">Phone Number:*</label>
+                    <input class="form-control" [ngClass]="isPhoneNumberValid == false ? 'invalidInput': ''" type="text" name="phoneNumber" [(ngModel)]="phoneNumber" [disabled]="isBasketEmpty" placeholder="e.g. +351 96XXXXXXX">
+                </div>
+
+                <!-- 4th row -->
+                <div class="form-group"><label class="float-left">Adress Line:*</label>
+                    <input class="form-control" [ngClass]="isAdressLineValid == false ? 'invalidInput': ''" type="text" name="adressLine" [(ngModel)]="adressLine" [disabled]="isBasketEmpty" placeholder="e.g. Rua Exemplo, nº23, 23ºA">
+                </div>
+
+                <!-- 5th row -->
+                <div class="form-group"><label class="float-left">ZIP-CODE*</label>
+                    <input class="form-control" [ngClass]="isZipCodeValid == false ? 'invalidInput': ''" type="text" name="zipCode" [(ngModel)]="zipCode" [disabled]="isBasketEmpty" placeholder="e.g. 2323-023">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 myColStyle">                
+                <!-- 1st row -->
+                <div class="form-group"><label class="float-left">City:*</label>
+                    <input class="form-control" [ngClass]="isCityValid == false ? 'invalidInput': ''" type="text" name="city" [(ngModel)]="city" [disabled]="isBasketEmpty" placeholder="e.g. Lisbon">
+                </div>
+
+                <!-- 2nd row -->
+                <div class="form-group"><label class="float-left">Country:*</label>
+                    <input class="form-control" [ngClass]="isCountryValid == false ? 'invalidInput': ''" type="text" name="country" [(ngModel)]="country" [disabled]="isBasketEmpty" placeholder="e.g. Portugal">
+                </div>
+               
+                <!-- 3rd row -->
+                <div class="form-group"><label class="float-left">Card Number:*</label>
+                <input class="form-control" [ngClass]="isCardNumberValid == false ? 'invalidInput': ''" type="text" name="cardNumber" [(ngModel)]="cardNumber" [disabled]="isBasketEmpty" placeholder="e.g. 0000 0000 0000 0000">
+                </div>
+                <!-- 4th row -->
+                <div class="form-group"><label class="float-left">Expiration Date:*</label>
+                    <input class="form-control" [ngClass]="isExpirationDateValid == false ? 'invalidInput': ''" type="text" name="expirationDate" [(ngModel)]="expirationDate" [disabled]="isBasketEmpty" placeholder="e.g. 07/23">
+                </div>
+ 
+                <!-- 5th row -->
+                <div class="form-group"><label class="float-left">CVC:*</label>
+                    <input class="form-control" [ngClass]="isCvcValid == false ? 'invalidInput': ''" type="text" name="cvc" [(ngModel)]="cvc" [disabled]="isBasketEmpty" placeholder="e.g. 230">
+                </div>
+            </div>
+            <h6 class="text-center">
+                <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" [disabled]="isBasketEmpty" (click)="informationIsCorrect()" >The information i'm giving is correct.</label>
+            </h6>
+
+            <div class="text-center text-info">
+            <img class="img-fluid" src="../../../assets/my-project-images/visa.svg" width="30" />
+            <img class="img-fluid" src="../../../assets/my-project-images/maestro.png" width="30" />
+            <img class="img-fluid" src="../../../assets/my-project-images/mastercard.svg" width="30" />
+            <img class="img-fluid" src="../../../assets/my-project-images/americanexpress.png" width="30" />
+            <img class="img-fluid" src="../../../assets/my-project-images/paypal.svg" width="30" />
+            </div>
+        <div>
+            <button class="btn btn-outline-success active btn-block" type="button" (click)="paymentConfirmation()"><strong>CONFIRM THE PAYMENT</strong></button>
 </div>
-</div>
-<div></div>
-<main class="page pricing-table-page"></main>

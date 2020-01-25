@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { EmailSender } from 'src/app/services/emailSender.service';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -18,18 +18,17 @@ export class ContactUsComponent implements OnInit {
   messageWasNotSent = 'none';
   emailIsNotValid = 'none';
 
-  constructor(private emailSender: EmailSender) { }
+  constructor(private emailService: EmailService) { }
 
   ngOnInit() {
   }
-
 
   sendContactMessage() {
     // If the input's are valid the validator will return true and the email will be validated;
     if (this.formValidator()) {
       // If they are valid we will check if the email is a valid String and only then the message will be sent
       if (this.emailToContact.includes('@')) {
-        this.emailSender.sendContactEmail(this.subjectToContact, this.nameToContact, this.emailToContact, this.messageToContact);
+        this.emailService.sendContactEmail(this.subjectToContact, this.nameToContact, this.emailToContact, this.messageToContact);
         this.emailIsNotValid = 'none';
         this.messageWasNotSent = 'none';
         this.messageWasSent = '';

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core'
 import { ShoppingService } from 'src/app/services/shopping.service';
 import { ClothingDataService } from 'src/app/services/clothing-data.service';
 import { DOCUMENT } from '@angular/common';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-t-shirts',
@@ -10,7 +9,6 @@ import { $ } from 'protractor';
   styleUrls: ['./t-shirts.component.css']
 })
 export class TShirtsComponent implements OnInit {
-colorSelected: string;
 tShirtCollection = [];
 
 // This is the the styling of the page
@@ -24,17 +22,19 @@ ngOnInit() {
 this.tShirtCollection = this.clothingDataService.getTshirtCollection();
 }
 
-  buyItNow() {
-    console.log("im buying this product!");
-    this.shoppingService.addToCart();
+buyItNow(type, model, price) {
+    let color = (<HTMLInputElement>document.getElementById(model + ".color")).value;
+    let size = (<HTMLInputElement>document.getElementById(model + ".size")).value;
+    this.shoppingService.addToCart(type, model, color, size, price);
 
-  }
+}
 
-  addToCart(type, model, price, color, size) {
+addToCart(type, model, price) {
+    let color = (<HTMLInputElement>document.getElementById(model + ".color")).value;
+    let size = (<HTMLInputElement>document.getElementById(model + ".size")).value;
+    this.shoppingService.addToCart(type, model, color, size, price);
     this.addToMyCartSuccess = '';
-    let colorSelected = document.getElementById(model + ".color").innerHTML;
-    console.log("I'm buying this: " + type + '|' + model + '|' + price + '|' + colorSelected + '|' + size);
-    this.shoppingService.addToCart();
     window.scrollTo(0, 0);
-  }
+}
+
 }

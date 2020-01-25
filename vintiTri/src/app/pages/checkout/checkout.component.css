@@ -10,6 +10,7 @@
   width:90%;
   margin:0 auto;
   box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+  padding: 1.5%;
 }
 
 /* FORM GROUPS */
@@ -42,4 +43,12 @@
   position:absolute;
   margin-top:.3rem;
   margin-left:-1.25rem;
+}
+
+.myColStyle {
+  float: left;
+}
+
+.invalidInput {
+  border:solid 2px #dc35467c;
 }

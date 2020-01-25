@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingService } from './services/shopping.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
