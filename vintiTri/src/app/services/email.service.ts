@@ -18,9 +18,8 @@ constructor(private httpClient: HttpClient, private shoppingService: ShoppingSer
 this.url =  'http://localhost:3000';
 }
 
-testMyServer() {
-  console.log("I'm on emailServices testing my endpoint!!!!");
-  return this.httpClient.get(this.url);
+checkServerStatus() {
+  return this.httpClient.get<string>(this.url.concat('/serverstatus'));
 }
 
 sendContactEmail(subject, name, email, message) {
@@ -28,7 +27,7 @@ sendContactEmail(subject, name, email, message) {
 }
 
 sendThisOrder(myOrderDetails: MyOrderDetails) {
-  console.log("I'm on emailSenderServicesending to the email: " + myOrderDetails.email + " and the order is: " + JSON.stringify(myOrderDetails.myItem));
-  return this.httpClient.post<MyOrderDetails>(this.url.concat('/sendmail'), JSON.stringify(myOrderDetails), httpOptions).subscribe(x => console.log(x));
+  console.log("I'm on email service sending myOrder to this email:" + myOrderDetails.email);
+  return this.httpClient.post<MyOrderDetails>(this.url.concat('/sendmail'), myOrderDetails, httpOptions);
 }
 }

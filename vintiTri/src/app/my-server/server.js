@@ -17,17 +17,15 @@ app.get("", (req, res) => {
   });
 
 app.post("/sendmail", (req, res) => {
-  console.log("request came");
-  let myOrderDetails = req.body;
-  sendMail(myOrderDetails, info => {
-    console.log(`The mail has been sent 😃`);
+    console.log("I'm on my node server and this is my request: " + req)
+  sendMail(req, info => {
+    console.log("The email is being sent to: " + req.email);
     res.send(info);
   });
 });
 
 
 async function sendMail(callback) {
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -40,9 +38,11 @@ async function sendMail(callback) {
 
   let mailOptions = await transporter.sendMail({
     from: `Vinti Tri ", "dioguinhosousinha23@gmail.com"`,
-    to: myOrderDetails.email,
+    from: `USER ", "dioguinhosousinha23@gmail.com"`,
+    // to: myOrderDetails.email,
     subject: "Vinti Tri - Order Confirmation",
-    html: "<h1> Thank your for your purchase " + myOrderDetails.firstAndLastName + "!</h1> <br> <hr> <h2> The item: " + myOrderDetails.myItem.model + " will be sent to your adress (" + myOrderDetails.adressLine + ") in 3 to 5 working days. </h2> <br> <h2> Best Regards!, <br> VINTI-TRI TEAM </h2>"
+    html: "<h1> It's working! </h1>"
+    // html: "<h1> Thank your for your purchase " + myOrderDetails.firstAndLastName + "!</h1> <br> <hr> <h2> The item: " + myOrderDetails.myItem.model + " will be sent to your adress (" + myOrderDetails.adressLine + ") in 3 to 5 working days. </h2> <br> <h2> Best Regards!, <br> VINTI-TRI TEAM </h2>"
   });
 
   // send mail with defined transport object

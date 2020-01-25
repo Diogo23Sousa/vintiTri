@@ -68,5 +68,5 @@
             <img class="img-fluid" src="../../../assets/my-project-images/paypal.svg" width="30" />
             </div>
         <div>
-            <button class="btn btn-outline-success active btn-block" type="button" (click)="paymentConfirmation()"><strong>CONFIRM THE PAYMENT</strong></button>
+            <button class="btn btn-outline-success active btn-block" *ngIf="!purchaseIsComplete" type="button" (click)="paymentConfirmation()"><strong>CONFIRM THE PAYMENT</strong></button>
 </div>

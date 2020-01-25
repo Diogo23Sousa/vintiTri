@@ -37,6 +37,7 @@ isInformationCorrectValid;
 // NG STYLES
 orderSuccess = 'none';
 orderFail = 'none';
+purchaseIsComplete = false;
 
   constructor(private shoppingService: ShoppingService, private emailService: EmailService) {
   }
@@ -59,7 +60,8 @@ orderFail = 'none';
       // tslint:disable-next-line: max-line-length
       const myOrderDetails = new MyOrderDetails(this.firstAndLastName, this.email, this.phoneNumber, this.adressLine, this.zipCode, this.city, this.country, this.cardNumber, this.expirationDate, this.cvc, this.shoppingService.getMyOrders());
       // tslint:disable-next-line: max-line-length
-      this.emailService.sendThisOrder(myOrderDetails);
+      this.emailService.sendThisOrder(myOrderDetails).subscribe(order => console.log(order));
+      this.purchaseIsComplete = true;
       window.scrollTo(0, 0);
     } else {
       this.orderSuccess = 'none';

@@ -63,11 +63,13 @@ constructor() {
 }
 
 getTshirtCollection() {
+this.tShirtCollection = [];
 this.tShirtCollection.push(this.slimFitTshirt, this.regularTshirt, this.classicCutTshirt);
 return this.tShirtCollection;
 }
 
 getPoloCollection() {
+this.poloCollection = [];
 this.poloCollection.push(this.slimFitPolo, this.regularPolo, this.classicCutPolo);
 return this.poloCollection;
 }
