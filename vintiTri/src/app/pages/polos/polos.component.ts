@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./polos.component.css']
 })
 export class PolosComponent implements OnInit {
+indexOfImageByColor = 0;
 poloCollection = [];
 
 // This is the the styling of the page
@@ -36,6 +37,20 @@ addToCart(type, model, price) {
     this.addToMyCartSuccess = '';
     window.scrollTo(0, 0);
 }
+changeImageByColor(i, model) {
+  let poloColor = (<HTMLInputElement>document.getElementById(model + ".color")).value;
+  console.log("I'm changin my color! to the item in the index: " + i + " and the color choosen is: " + poloColor);
 
+  if (poloColor === 'Deep Blue' || poloColor === 'Beige' || poloColor === 'Night Black') {
+    this.indexOfImageByColor = 0;
+  }
+  if (poloColor === 'Plain Green' || poloColor === 'Simple Blue' || poloColor === 'Old Blue') {
+    this.indexOfImageByColor = 1;
+  }
+  if (poloColor === 'Explorer Grey' || poloColor === 'Clear Grey' || poloColor === 'Light Grey') {
+    this.indexOfImageByColor = 2;
+  }
+  // this.indexOfImageByColor = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+  }
 }
 
