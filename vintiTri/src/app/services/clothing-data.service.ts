@@ -10,19 +10,33 @@ export class ClothingDataService {
 tShirtCollection = [];
 
 // Colors
-slimFitTshirtColors = ['Night Black', 'Grey Red', 'Florest Green', 'Deep Blue', 'Simple White', 'Sand Explorer'];
-regularTshirtColors = ['Black Tax', 'Grey Green', 'Natural Wood', 'Ocean Blue', 'Blanco', 'Happy Yellow'];
-classicCutTshirtColors = ['Mamba Dark', 'Dark Grey', 'Indigo', 'Mint', 'Azure Black', 'Orange Fruit'];
+slimFitTshirtColors = ['Night Black', 'Florest Mint', 'Simple White'];
+regularTshirtColors = ['Deep Green', 'Plastic Grey', 'Happy Orange'];
+classicCutTshirtColors = ['Modern Black', 'Deep Blue', 'Plain White'];
 
 // Sizes
 slimFitTshirtSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 regularTshirtSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 classicCutTshirtSizes = ['XS', 'S', 'M', 'L', 'XL'];
 
-// Images
-slimFitTshirtImages = ['../../../assets/my-project-images/redShirtModel.jpg', '../../../assets/my-project-images/redShirtModel.jpg'];
-regularTshirtImages = ['../../../assets/my-project-images/redShirtModel.jpg', '../../../assets/my-project-images/redShirtModel.jpg'];
-classicCutTshirtImages = ['../../../assets/my-project-images/redShirtModel.jpg', '../../../assets/my-project-images/redShirtModel.jpg'];
+// Slim Fit Colors - Images
+slimFitTshirtImagesBlack = ['../../../assets/clothing-images/shirts/slimFitBlackShirtA.jpg', '../../../assets/clothing-images/shirts/slimFitBlackShirtB.jpg'];
+slimFitTshirtImagesMint = ['../../../assets/clothing-images/shirts/slimFitMintShirtA.jpg', '../../../assets/clothing-images/shirts/slimFitMintShirtB.jpg'];
+slimFitTshirtImagesWhite = ['../../../assets/clothing-images/shirts/slimFitWhiteShirtA.jpg', '../../../assets/clothing-images/shirts/slimFitWhiteShirtB.jpg'];
+
+// Regular Colors - Images
+regularTshirtImagesGreen = ['../../../assets/clothing-images/shirts/tshirtSlimFitGreenA.jpg', '../../../assets/clothing-images/shirts/tshirtSlimFitGreenB.jpg'];
+regularTshirtImagesGrey = ['../../../assets/clothing-images/shirts/tshirtSlimFitGreyA.jpg', '../../../assets/clothing-images/shirts/tshirtSlimFitGreyB.jpg'];
+regularTshirtImagesOrange = ['../../../assets/clothing-images/shirts/tshirtSlimFitOrangeA.jpg', '../../../assets/clothing-images/shirts/tshirtSlimFitOrangeB.jpg'];
+
+// Classic Cut Colors - Images
+classicCutTshirtImagesBlack = ['../../../assets/clothing-images/shirts/casualBlackShirtA.jpg', '../../../assets/clothing-images/shirts/casualBlackShirtB.jpg'];
+classicCutTshirtImagesBlue = ['../../../assets/clothing-images/shirts/casualBlueShirtA.jpg', '../../../assets/clothing-images/shirts/casualBlueShirtB.jpg'];
+classicCutTshirtImagesWhite = ['../../../assets/clothing-images/shirts/casualWhiteShirtA.jpg', '../../../assets/clothing-images/shirts/casualWhiteShirtB.jpg'];
+
+slimFitTshirtImages = [this.slimFitTshirtImagesBlack, this.slimFitTshirtImagesMint, this.slimFitTshirtImagesWhite];
+regularTshirtImages = [this.regularTshirtImagesGreen, this.regularTshirtImagesGrey, this.regularTshirtImagesOrange];
+classicCutTshirtImages = [this.classicCutTshirtImagesBlack, this.classicCutTshirtImagesBlue, this.classicCutTshirtImagesWhite];
 
 // Final Object
 // tslint:disable-next-line: max-line-length
@@ -36,19 +50,34 @@ classicCutTshirt = new ClothingPiece('T-SHIRT', 'CLASSIC CUT', this.classicCutTs
 // This is the collection of the polos
 poloCollection = [];
 // Colors
-slimFitPoloColors = ['Nocturne', 'Marble', 'Spirit Green', 'Deep Ocean', 'Plain White', 'Explorer'];
-regularPoloColors = ['Night Mode', 'Simple Grey', 'Natural Green', 'Clear Blue', 'Blanco', 'Orange-Yellow'];
-classicCutPoloColors = ['Dark', 'Plain Grey', 'Mint', 'Light Blue', 'Turquise', 'Simple Purple'];
+slimFitPoloColors = ['Deep Ocean', 'Plain Green', 'Explorer Grey'];
+regularPoloColors = ['Night Black', 'Simple Blue', 'Clear Grey'];
+classicCutPoloColors = ['Beige', 'Old Blue', 'Light Green'];
 
 // Sizes
 slimFitPoloSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 regularPoloSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 classicCutPoloSizes = ['XS', 'S', 'M', 'L', 'XL'];
 
+// Slim Fit Colors - Images
+slimFitPoloImagesBlue = ['../../../assets/clothing-images/polos/anotherBluePoloA.jpg', '../../../assets/clothing-images/polos/anotherBluePoloB.jpg'];
+slimFitPoloImagesGreen = ['../../../assets/clothing-images/polos/anotherGreenPoloA.jpg', '../../../assets/clothing-images/polos/anotherGreenPoloB.jpg'];
+slimFitPoloImagesGrey = ['../../../assets/clothing-images/polos/anotherGreyPoloA.jpg', '../../../assets/clothing-images/polos/anotherGreyPoloB.jpg'];
+
+// Regular Colors - Images
+regularPoloImagesBlack = ['../../../assets/clothing-images/polos/regularBeigePoloA.jpg', '../../../assets/clothing-images/polos/regularBeigePoloB.jpg'];
+regularPoloImagesBlue = ['../../../assets/clothing-images/polos/regularBluePoloA.jpg', '../../../assets/clothing-images/polos/regularBluePoloB.jpg'];
+regularPoloImagesGrey = ['../../../assets/clothing-images/polos/regularGreenPoloA.jpg', '../../../assets/clothing-images/polos/regularGreenPoloB.jpg'];
+
+// Classic Cut Colors - Images
+classicCutPoloImagesBeige = ['../../../assets/clothing-images/polos/casualBlackShirtA.jpg', '../../../assets/clothing-images/polos/casualBlackShirtB.jpg'];
+classicCutPoloImagesBlue = ['../../../assets/clothing-images/polos/casualBlueShirtA.jpg', '../../../assets/clothing-images/polos/casualBlueShirtB.jpg'];
+classicCutPoloImagesGreen = ['../../../assets/clothing-images/polos/casualWhiteShirtA.jpg', '../../../assets/clothing-images/polos/casualWhiteShirtB.jpg'];
+
 // Images
-slimFitPoloImages = ['../../../assets/my-project-images/poloShirtModel.jpg', '../../../assets/my-project-images/poloShirtModel.jpg'];
-regularPoloImages = ['../../../assets/my-project-images/poloShirtModel.jpg', '../../../assets/my-project-images/poloShirtModel.jpg'];
-classicCutPoloImages = ['../../../assets/my-project-images/poloShirtModel.jpg', '../../../assets/my-project-images/poloShirtModel.jpg'];
+slimFitPoloImages = [this.slimFitPoloImagesBlue, this.slimFitPoloImagesGreen, this.slimFitPoloImagesGrey];
+regularPoloImages = [this.regularPoloImagesBlack, this.regularPoloImagesBlue, this.regularPoloImagesGrey];
+classicCutPoloImages = [this.classicCutPoloImagesBeige, this.classicCutPoloImagesBlue, this.classicCutPoloImagesGreen];
 
 // Final Object
 // tslint:disable-next-line: max-line-length
@@ -72,5 +101,8 @@ getPoloCollection() {
 this.poloCollection = [];
 this.poloCollection.push(this.slimFitPolo, this.regularPolo, this.classicCutPolo);
 return this.poloCollection;
+}
+
+getSlimFitShirtImages() {
 }
 }
