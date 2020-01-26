@@ -1,10 +1,9 @@
 # vintiTri
-Online shopping clothing brand example using Angular 8+.
-
-The webapp is with low level logic so the most used languages were HTML5/CSS3.
+Online shopping clothing brand example using HTML5, CSS3, Angular 8+ and Node.js.
 
 Start instructions:
 
 -> Clone the repository and move inside the folder;
--> Install NPM;
--> run the command: ng serve;
+-> Install the dependencies: (npm install)
+-> Run Angular Client: (npm start)
+-> Run Node Server: (node server.js)
