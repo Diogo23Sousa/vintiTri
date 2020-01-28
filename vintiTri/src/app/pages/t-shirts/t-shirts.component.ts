@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./t-shirts.component.css']
 })
 export class TShirtsComponent implements OnInit {
+tshirt;
 indexOfImageByColor = 0;
 tShirtCollection = [];
 

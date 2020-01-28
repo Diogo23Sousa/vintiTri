@@ -31,8 +31,8 @@ async function sendMail(callback) {
     port: 587,
     secure: false,
     auth: {
-      user: "dioguinhosousinha23@gmail.com",
-      pass: "rafaelasousa"
+      user: "x@gmail.com",
+      pass: "x"
     }
   });
 
