@@ -54,7 +54,7 @@ purchaseIsComplete = false;
     // tslint:disable-next-line: max-line-length
     this.generalValidator(this.email, this.phoneNumber, this.adressLine, this.zipCode, this.city, this.country, this.cardNumber, this.expirationDate, this.cvc);
     // tslint:disable-next-line: max-line-length
-    if (this.isEmailValid === this.isPhoneNumberValid === this.isAdressLineValid === this.isZipCodeValid === this.isCityValid === this.isCountryValid === this.isExpirationDateValid === this.isCvcValid === this.isInformationCorrectValid === true) {
+    if (this.isEmailValid === true && this.isPhoneNumberValid === true && this.isAdressLineValid === true && this.isZipCodeValid  === true && this.isCityValid === true && this.isCountryValid === true && this.isExpirationDateValid === true && this.isCvcValid === true && this.isInformationCorrectValid === true) {
       this.orderFail = 'none';
       this.orderSuccess = '';
       // tslint:disable-next-line: max-line-length
@@ -90,7 +90,8 @@ generalValidator(email, phoneNumber, adressLine, zipCode, city, country, cardNum
     this.isAdressLineValid = true;
   }  else {
     this.isAdressLineValid = false;
-    this.adressLine = '';}
+    this.adressLine = '';
+  }
   // ZIP CODE
   if (zipCode.length > 0) {
     this.isZipCodeValid = true;
