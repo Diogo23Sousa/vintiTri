@@ -1,5 +1,6 @@
 # vintiTri
 Online shopping clothing brand example using HTML5, CSS3, Angular 8+ and Node.js.
+Using static features to replace the usage of database.
 
 Installation instructions:
 
