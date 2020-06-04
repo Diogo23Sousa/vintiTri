@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from 'src/app/services/email.service';
+import { ContactForm } from 'src/app/models/contact-form';
 
 @Component({
   selector: 'app-feedback',
@@ -28,7 +29,8 @@ export class FeedbackComponent implements OnInit {
     if (this.formValidator()) {
       // If they are valid we will check if the email is a valid String and only then the message will be sent
       if (this.emailToContact.includes('@')) {
-        this.emailService.sendContactEmail(this.rating, this.nameToContact, this.emailToContact, this.messageToContact);
+        var myFeedBackMessage = new ContactForm(this.rating, this.nameToContact, this.emailToContact, this.messageToContact);
+        this.emailService.sendContactEmail(myFeedBackMessage).subscribe(sendContactMessage => console.log(sendContactMessage));
         this.emailIsNotValid = 'none';
         this.messageWasNotSent = 'none';
         this.messageWasSent = '';

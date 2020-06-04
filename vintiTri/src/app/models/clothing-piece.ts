@@ -16,5 +16,4 @@ constructor(type, model, colors, sizes, images, price, available){
     this.price = price;
     this.available = available;
     }
-
 }
