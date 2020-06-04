@@ -10,7 +10,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class TShirtsComponent implements OnInit {
 tshirt;
-indexOfImageByColor = 0;
+
 tShirtCollection = [];
 
 // This is the the styling of the page
@@ -39,17 +39,31 @@ addToCart(type, model, price) {
 }
 
 changeImageByColor(i, model) {
+  let myImageSrc1;
+  let myImageSrc2;
+  let index = 0;
   let tshirtColor = (<HTMLInputElement>document.getElementById(model + ".color")).value;
-  console.log("I'm changin my color! to the item in the index: " + i + " and the color choosen is: " + tshirtColor);
 
-  if (tshirtColor === 'Night Black' || tshirtColor === 'Deep Green' || tshirtColor === 'Modern Black') {
-    this.indexOfImageByColor = 0;
+  if (tshirtColor === 'Night Black' || tshirtColor === 'Deep Green' || tshirtColor === 'Modern Black') {index = 0;}
+  if (tshirtColor === 'Florest Mint' || tshirtColor === 'Plastic Grey' || tshirtColor === 'Deep Blue') {index = 1;}
+  if (tshirtColor === 'Simple White' || tshirtColor === 'Happy Orange' || tshirtColor === 'Plain White') {index = 2;}
+
+  if (model === 'SLIM-FIT') {
+    myImageSrc1 = this.clothingDataService.slimFitTshirt.images[index][0];
+    myImageSrc2 = this.clothingDataService.slimFitTshirt.images[index][1];
   }
-  if (tshirtColor === 'Florest Mint' || tshirtColor === 'Plastic Grey' || tshirtColor === 'Deep Blue') {
-    this.indexOfImageByColor = 1;
+
+  if (model === 'REGULAR') {
+    myImageSrc1 = this.clothingDataService.regularTshirt.images[index][0];
+    myImageSrc2 = this.clothingDataService.regularTshirt.images[index][1];
   }
-  if (tshirtColor === 'Simple White' || tshirtColor === 'Happy Orange' || tshirtColor === 'Plain White') {
-    this.indexOfImageByColor = 2;
+
+  if (model === 'CLASSIC CUT') {
+    myImageSrc1 = this.clothingDataService.classicCutTshirt.images[index][0];
+    myImageSrc2 = this.clothingDataService.classicCutTshirt.images[index][1];
   }
+
+  (<HTMLInputElement>document.getElementById(model + "1")).src = myImageSrc1;
+  (<HTMLInputElement>document.getElementById(model + "2")).src = myImageSrc2;
   }
 }

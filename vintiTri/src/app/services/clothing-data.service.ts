@@ -50,46 +50,43 @@ classicCutTshirt = new ClothingPiece('T-SHIRT', 'CLASSIC CUT', this.classicCutTs
 // ---------------------------------------------------- POLOS ----------------------------------------------------
 // This is the collection of the polos
 poloCollection = [];
-// Colors
-slimFitPoloColors = ['Deep Blue', 'Plain Green', 'Explorer Grey'];
-regularPoloColors = ['Beige', 'Simple Blue', 'Clear Grey'];
-classicCutPoloColors = ['Night Black', 'Old Blue', 'Light Grey'];
 
 // Sizes
 slimFitPoloSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 regularPoloSizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 classicCutPoloSizes = ['XS', 'S', 'M', 'L', 'XL'];
 
-// Slim Fit Colors - Images
+// Colors
+slimFitPoloColors = ['Deep Blue', 'Plain Green', 'Explorer Grey'];
+regularPoloColors = ['Beige', 'Simple Blue', 'Clear Grey'];
+classicCutPoloColors = ['Night Black', 'Old Blue', 'Light Grey'];
+
+// Slim Fit Colors - Images - 2 per Item
 slimFitPoloImagesBlue = ['../../../assets/clothing-images/polos/anotherBluePoloA.jpg', '../../../assets/clothing-images/polos/anotherBluePoloB.jpg'];
 slimFitPoloImagesGreen = ['../../../assets/clothing-images/polos/anotherGreenPoloA.jpg', '../../../assets/clothing-images/polos/anotherGreenPoloB.jpg'];
 slimFitPoloImagesGrey = ['../../../assets/clothing-images/polos/anotherGreyPoloA.jpg', '../../../assets/clothing-images/polos/anotherGreyPoloB.jpg'];
 
-// Regular Colors - Images
+// Regular Colors - Images - 2 per Item
 regularPoloImagesBeige = ['../../../assets/clothing-images/polos/regularBeigePoloA.jpg', '../../../assets/clothing-images/polos/regularBeigePoloB.jpg'];
 regularPoloImagesBlue = ['../../../assets/clothing-images/polos/regularBluePoloA.jpg', '../../../assets/clothing-images/polos/regularBluePoloB.jpg'];
 regularPoloImagesGrey = ['../../../assets/clothing-images/polos/regularGreenPoloA.jpg', '../../../assets/clothing-images/polos/regularGreenPoloB.jpg'];
 
-// Classic Cut Colors - Images
+// Classic Cut Colors - Images - 2 per Item
 classicCutPoloImagesBlack = ['../../../assets/clothing-images/polos/newBlackPoloA.jpg', '../../../assets/clothing-images/polos/newBlackPoloB.jpg'];
 classicCutPoloImagesBlue = ['../../../assets/clothing-images/polos/newBluePoloA.jpg', '../../../assets/clothing-images/polos/newBluePoloB.jpg'];
 classicCutPoloImagesGrey = ['../../../assets/clothing-images/polos/newGreyPoloA.jpg', '../../../assets/clothing-images/polos/newGreyPoloB.jpg'];
 
-// Images
+// Pushing the Images
 slimFitPoloImages = [this.slimFitPoloImagesBlue, this.slimFitPoloImagesGreen, this.slimFitPoloImagesGrey];
 regularPoloImages = [this.regularPoloImagesBeige, this.regularPoloImagesBlue, this.regularPoloImagesGrey];
 classicCutPoloImages = [this.classicCutPoloImagesBlack, this.classicCutPoloImagesBlue, this.classicCutPoloImagesGrey];
 
 // Final Object
-// tslint:disable-next-line: max-line-length
 slimFitPolo = new ClothingPiece('POLO', 'SLIM-FIT', this.slimFitPoloColors, this.slimFitPoloSizes, this.slimFitPoloImages, '36.99', true);
-// tslint:disable-next-line: max-line-length
 regularPolo = new ClothingPiece('POLO', 'REGULAR', this.regularPoloColors, this.regularPoloSizes, this.regularPoloImages, '39.99', true);
-// tslint:disable-next-line: max-line-length
 classicCutPolo = new ClothingPiece('POLO', 'CLASSIC CUT', this.classicCutPoloColors, this.classicCutPoloSizes, this.classicCutPoloImages, '42.99', true);
 
 constructor() {
-
 }
 
 getTshirtCollection() {
@@ -104,6 +101,4 @@ this.poloCollection.push(this.slimFitPolo, this.regularPolo, this.classicCutPolo
 return this.poloCollection;
 }
 
-getSlimFitShirtImages() {
-}
 }

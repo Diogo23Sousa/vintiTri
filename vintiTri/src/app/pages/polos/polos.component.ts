@@ -9,7 +9,6 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./polos.component.css']
 })
 export class PolosComponent implements OnInit {
-indexOfImageByColor = 0;
 poloCollection = [];
 
 // This is the the styling of the page
@@ -37,20 +36,34 @@ addToCart(type, model, price) {
     this.addToMyCartSuccess = '';
     window.scrollTo(0, 0);
 }
-changeImageByColor(i, model) {
-  let poloColor = (<HTMLInputElement>document.getElementById(model + ".color")).value;
-  console.log("I'm changin my color! to the item in the index: " + i + " and the color choosen is: " + poloColor);
 
-  if (poloColor === 'Deep Blue' || poloColor === 'Beige' || poloColor === 'Night Black') {
-    this.indexOfImageByColor = 0;
+changeImageByColor(i, model) {
+  let myImageSrc1;
+  let myImageSrc2;
+  let index = 0;
+  let poloColor = (<HTMLInputElement>document.getElementById(model + ".color")).value;
+  
+  if (poloColor === 'Deep Blue' || poloColor === 'Beige' || poloColor === 'Night Black') {index = 0;}
+  if (poloColor === 'Plain Green' || poloColor === 'Simple Blue' || poloColor === 'Old Blue') {index = 1;}
+  if (poloColor === 'Explorer Grey' || poloColor === 'Clear Grey' || poloColor === 'Light Grey') {index = 2;}
+
+  if (model === 'SLIM-FIT') {
+      myImageSrc1 = this.clothingDataService.slimFitPolo.images[index][0];
+      myImageSrc2 = this.clothingDataService.slimFitPolo.images[index][1];
   }
-  if (poloColor === 'Plain Green' || poloColor === 'Simple Blue' || poloColor === 'Old Blue') {
-    this.indexOfImageByColor = 1;
+
+  if (model === 'REGULAR') {
+      myImageSrc1 = this.clothingDataService.regularPolo.images[index][0];
+      myImageSrc2 = this.clothingDataService.regularPolo.images[index][1];
   }
-  if (poloColor === 'Explorer Grey' || poloColor === 'Clear Grey' || poloColor === 'Light Grey') {
-    this.indexOfImageByColor = 2;
-  }
-  // this.indexOfImageByColor = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-  }
+
+  if (model === 'CLASSIC CUT') {
+      myImageSrc1 = this.clothingDataService.classicCutPolo.images[index][0];
+      myImageSrc2 = this.clothingDataService.classicCutPolo.images[index][1];
+    }
+
+    (<HTMLInputElement>document.getElementById(model + "1")).src = myImageSrc1;
+    (<HTMLInputElement>document.getElementById(model + "2")).src = myImageSrc2;
+    }
 }
 

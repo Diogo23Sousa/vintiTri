@@ -6,15 +6,17 @@ import { MyItem } from 'src/app/models/my-item';
 })
 
 export class ShoppingService {
-myItem: MyItem; 
+myItem: MyItem;
 totalOrders = [];
+myItemId = 0;
 
 constructor() {
 
 }
 
 addToCart(type, model, price, color, size) {
-this.totalOrders.push(new MyItem(type, model, price, color, size));
+  this.myItemId ++;
+  this.totalOrders.push(new MyItem(type, model, price, color, size));
 }
 
 getMyOrders() {
