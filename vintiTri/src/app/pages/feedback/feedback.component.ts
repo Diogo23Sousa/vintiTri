@@ -30,7 +30,7 @@ export class FeedbackComponent implements OnInit {
       // If they are valid we will check if the email is a valid String and only then the message will be sent
       if (this.emailToContact.includes('@')) {
         var myFeedBackMessage = new ContactForm(this.rating, this.nameToContact, this.emailToContact, this.messageToContact);
-        this.emailService.sendContactEmail(myFeedBackMessage).subscribe(sendContactMessage => console.log(sendContactMessage));
+        this.emailService.sendFeedBackEmail(myFeedBackMessage).subscribe(sendContactMessage => console.log(sendContactMessage));
         this.emailIsNotValid = 'none';
         this.messageWasNotSent = 'none';
         this.messageWasSent = '';

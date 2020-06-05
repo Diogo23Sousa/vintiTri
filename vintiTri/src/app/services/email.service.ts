@@ -21,12 +21,14 @@ this.url =  'http://localhost:3000';
 
 
 sendContactEmail(contactForm: ContactForm) {
-  console.log('Subject: ' + contactForm.subject + ', Name: ' + contactForm.name + ', Email: ' + contactForm.email + ', Message: ' + contactForm.message);
-  return this.httpClient.post<ContactForm>(this.url.concat('/sendemail'), JSON.stringify(contactForm), httpOptions)
+   return this.httpClient.post<ContactForm>(this.url.concat('/sendemail'), JSON.stringify(contactForm), httpOptions);
+}
+
+sendFeedBackEmail(contactForm: ContactForm) {
+    return this.httpClient.post<ContactForm>(this.url.concat('/sendfeedback'), JSON.stringify(contactForm), httpOptions);
 }
 
 sendThisOrder(myOrderDetails: MyOrderDetails) {
-  console.log("I'm on email service sending myOrder to this email:" + myOrderDetails.email);
-  return this.httpClient.post<MyOrderDetails>(this.url.concat('/sendorder'), JSON.stringify(myOrderDetails), httpOptions);
+   return this.httpClient.post<MyOrderDetails>(this.url.concat('/sendorder'), JSON.stringify(myOrderDetails), httpOptions);
 }
 }
