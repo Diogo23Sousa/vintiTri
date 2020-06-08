@@ -5,9 +5,12 @@ module.exports = function(app) {
   const bodyParser = require("body-parser");
   app.use(bodyParser.json());
   
+  
   // NODEMAILER
   const nodemailer = require("nodemailer");
   
+  var fs = require('fs');
+  var handlebars = require('handlebars');
   
   // SEND EMAIL WITH CONTACT FORM OR FEEDBACK
   app.post('/sendorder', function (req, res) {
@@ -20,21 +23,26 @@ module.exports = function(app) {
           pass: "x"
         }
       });
-    
-      let mailOptions = {
-          to: req.body.email,
-          subject: "Purchase Confirmation",
-          from: `VINTI TRI " "dioguinhosousinha23@gmail.com"`,
-      };
-      transporter.sendMail(mailOptions, (error, info) => {
+  
+      fs.readFile('/Users/diogosousa/Desktop/vintiTri/vintiTri/src/app/my-server/my-routes/sendOrder.html', {encoding: 'utf-8'}, function (err, myEmail) {
+        if (err) {
+          console.log(err);
+        } else {
+          let mailOptions = {
+            to: req.body.email,
+            subject: "Order Confirmation",
+            from: `Vinti-TriI " "dioguinhosousinha23@gmail.com"`,
+            html: myEmail
+          };
+          transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
               return console.log(error);
           }
           console.log('Message %s sent: %s', info.messageId, info.response);
-      });
-      res.writeHead(301, { Location: 'index.html' });
-      res.end();
+        });
+          res.end();
+      }
     });
-  
+    });
   }
   

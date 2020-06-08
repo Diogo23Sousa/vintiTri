@@ -5,9 +5,11 @@ module.exports = function(app) {
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+
 // NODEMAILER
 const nodemailer = require("nodemailer");
 
+var fs = require('fs');
 
 // SEND EMAIL WITH CONTACT FORM OR FEEDBACK
 app.post('/sendemail', function (req, res) {
@@ -20,21 +22,25 @@ app.post('/sendemail', function (req, res) {
         pass: "x"
       }
     });
-  
-    let mailOptions = {
-        to: req.body.email,
-        subject: "Contact Request - " + req.body.subject,
-        from: `VINTI TRI " "dioguinhosousinha23@gmail.com"`,
-        html: '<h1 class:text-center> Hello ' + req.body.name +  '!</h1> <br> <h2> We received your message: ' + req.body.message + 'and we will try to reply to it in the next days!' 
-    };
-    transporter.sendMail(mailOptions, (error, info) => {
+
+    fs.readFile('/Users/diogosousa/Desktop/vintiTri/vintiTri/src/app/my-server/my-routes/sendEmail.html', {encoding: 'utf-8'}, function (err, myEmail) {
+      if (err) {
+        console.log(err);
+      } else {
+        let mailOptions = {
+          to: req.body.email,
+          subject: "Contact Request - " + req.body.subject,
+          from: `Vinti-Tri " "dioguinhosousinha23@gmail.com"`,
+          html: myEmail
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log(error);
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
-    });
-    res.writeHead(301, { Location: 'index.html' });
-    res.end();
+      });
+        res.end();
+    }
   });
-
+  });
 }
