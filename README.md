@@ -12,8 +12,11 @@ Installation instructions:
 3. Install the needed modules for the project by running the following command:
 ```npm install```
 
-4. Running the server locally:
+4. Running the client server locally: move to the folder ./vinti-tri run the following command:
 ```npm start```
+
+5. Running express: move to the folder ./my-server and run the following command:
+```node server.js```
 
 5. Open you browser on the following url:
 ```http://localhost:4200/```
