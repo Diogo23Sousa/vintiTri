@@ -10,7 +10,6 @@ module.exports = function(app) {
   const nodemailer = require("nodemailer");
   
   var fs = require('fs');
-  var handlebars = require('handlebars');
   
   // SEND EMAIL WITH CONTACT FORM OR FEEDBACK
   app.post('/sendorder', function (req, res) {
@@ -19,20 +18,43 @@ module.exports = function(app) {
         port: 587,
         secure: false,
         auth: {
-          user: "dioguinhosousinha23@gmail.com",
-          pass: "x"
+          user: "vinti.tri.shop@gmail.com",
+          pass: "allwayswi2m8"
         }
       });
   
-      fs.readFile('/Users/diogosousa/Desktop/vintiTri/vintiTri/src/app/my-server/my-routes/sendOrder.html', {encoding: 'utf-8'}, function (err, myEmail) {
-        if (err) {
-          console.log(err);
-        } else {
           let mailOptions = {
+            // Item(s): <br> ` + JSON.stringify(req.body.myItem) + ` '' <br> <br>
             to: req.body.email,
-            subject: "Order Confirmation",
-            from: `Vinti-TriI " "dioguinhosousinha23@gmail.com"`,
-            html: myEmail
+            subject: "Purchase Confirmed - " + req.body.city + ", " +req.body.country,
+            from: `Vinti-Tri " "vinti.tri.shop@gmail.com"`,
+            html: `<div style="margin-top: 5%; margin-bottom: 2%; background-color: rgba(255, 255, 255, 0.726); font-family: 'Montserrat', sans-serif; color: rgba(128, 128, 128, 0.87);">    
+            <div style="  padding: 2%; margin-top: 5%; color: rgba(0, 0, 0, 0.87); text-align: left;"> 
+            Hello ` + req.body.firstAndLastName + `, <br> <br>
+            We received your payment and we are preparing your package that should arrive within 2 to 5 working days! <br>
+            Best Regards, <br>
+            Vinti-Tri Team
+            </div>
+            <br>
+            <hr style=" height: 3px; color: rgba(128, 128, 128, 0.87); background-color:  rgba(128, 128, 128, 0.87);">
+            <div style="text-align: center; font-size: 12px; color: rgba(128, 128, 128, 0.87); font-weight: bolder; margin-top: 1%;">
+                “You can change what you do, but not what you want.”
+            </div>
+            <br>
+                <div style="text-align: center;font-size: 12px; margin-top: 2%"> Follow us on social media </div> <br>
+                    <div style="text-align: center; margin:auto">
+                        <a href="https://www.facebook.com/Vinti-Tri-103694794426767" target="_blank"><img alt="Instagram" width="20" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" /></a>
+                        <a href="https://www.instagram.com/vinti_tri/" target="_blank"><img alt="Facebook" width="20" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png" /></a>
+                    </div>
+               
+            <div style="text-align: center;font-size: 12px; margin-top: 2%">
+                © 2020 VintiTri Ltd. <br>
+                All rights reserved. <br>
+                VintiTri is a  registered trademark of VintiTri Ltd in the Portugal and/or other countries. <br>
+                All other trademarks are the property of their respective owners. <br>
+                PLEASE DO NOT REPLY TO THIS EMAIL.
+            </div>
+        </div>`
           };
           transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
@@ -41,8 +63,53 @@ module.exports = function(app) {
           console.log('Message %s sent: %s', info.messageId, info.response);
         });
           res.end();
-      }
-    });
+     // SENDING THE INFO TO MY EMAIL
+  let mailOptions2 = {
+    to: "vinti.tri.shop@gmail.com",
+    subject: "Order Received - " + req.body.city + ", " +req.body.country,
+    from: `Vinti-Tri " "vinti.tri.shop@gmail.com"`,
+    html: `<div style="margin-top: 5%; margin-bottom: 2%; background-color: rgba(255, 255, 255, 0.726); font-family: 'Montserrat', sans-serif; color: rgba(128, 128, 128, 0.87);">    
+    <div style="  padding: 2%; margin-top: 5%; color: rgba(0, 0, 0, 0.87); text-align: left;"> 
+    Hello Vinti Tri, <br> <br>
+    The following user: ` + req.body.firstAndLastName +  `, with the email: ` + req.body.email + `, just made an order with the following details: <br>
+    Name: ` + req.body.firstAndLastName + `<br>
+    Email: ` + req.body.email + `<br>
+    Phone Number: ` + req.body.phoneNumber + `<br>
+    Adress Line: ` + req.body.adressLine + `<br>
+    ZIP CODE: ` + req.body.zipCode + `<br>
+    City: ` + req.body.city + `<br>
+    Country: ` + req.body.country + `<br>
+    Item(s): <br>` + JSON.stringify(req.body.myItem) + `<br>
+
+    Best Regards, <br>
+    Vinti-Tri Team
+    </div>
+    <br>
+    <hr style=" height: 3px; color: rgba(128, 128, 128, 0.87); background-color:  rgba(128, 128, 128, 0.87);">
+    <div style="text-align: center; font-size: 12px; color: rgba(128, 128, 128, 0.87); font-weight: bolder; margin-top: 1%;">
+        “You can change what you do, but not what you want.”
+    </div>
+    <br>
+        <div style="text-align: center;font-size: 12px; margin-top: 2%"> Follow us on social media </div> <br>
+            <div style="text-align: center; margin:auto">
+                <a href="https://www.facebook.com/Vinti-Tri-103694794426767" target="_blank"><img alt="Instagram" width="20" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" /></a>
+                <a href="https://www.instagram.com/vinti_tri/" target="_blank"><img alt="Facebook" width="20" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png" /></a>
+            </div>
+       
+    <div style="text-align: center;font-size: 12px; margin-top: 2%">
+        © 2020 VintiTri Ltd. <br>
+        All rights reserved. <br>
+        VintiTri is a  registered trademark of VintiTri Ltd in the Portugal and/or other countries. <br>
+        All other trademarks are the property of their respective owners. <br>
+        PLEASE DO NOT REPLY TO THIS EMAIL.
+    </div>
+</div>`
+  };
+  transporter.sendMail(mailOptions2, (error, info) => {
+  if (error) {
+      return console.log(error);
+  }
+  });
     });
   }
   
