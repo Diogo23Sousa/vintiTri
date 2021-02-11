@@ -21,16 +21,4 @@ Installation instructions:
 5. Open you browser on the following url:
 ```http://localhost:4200/```
 
-
-
-Installation Protocol:
-
-1. Clone the repository in your machine using the proper link.
-
-2. Install NPM and Angular v8 +.
-
-3. Move inside the main folder -> run: npm start
-
-4. Open your browser and check the website running locally: http://localhost:4200/
-
 The website is also builded in Netlify: https://vintitri.netlify.app/
