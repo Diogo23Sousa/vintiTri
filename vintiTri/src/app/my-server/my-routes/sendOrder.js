@@ -19,7 +19,7 @@ module.exports = function(app) {
         secure: false,
         auth: {
           user: "vinti.tri.shop@gmail.com",
-          pass: "allwayswi2m8"
+          pass: "yourpasswordhere"
         }
       });
   
