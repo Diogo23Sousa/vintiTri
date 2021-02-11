@@ -3,12 +3,24 @@
 @media (min-width:576px) {
   .clean-block.clean-hero {
     min-height:680px;
+  
+  }
+  .backgroundImage {
+    background-color: #cccccc;
+    background-size: 1640px;
   }
 }
 
 @media (max-width: 575px) {
+
   .clean-block.clean-hero {
-    min-height: 580px;
+    min-height:680px;
+  
+  }
+
+  .backgroundImage {
+    background-color: #cccccc;
+    background-size: 900px;
   }
 }
 
@@ -78,15 +90,6 @@
   padding-bottom:100px;
 }
 
-@media (min-width:576px) {
-  .clean-block {
-    padding-bottom:100px;
-  }
-}
-
-.secondPageTitle {
-  margin-bottom: 50px;
-}
 
 /***************************************************** 3rd PAGE *****************************************************/
 /* CONTAINER */
@@ -95,41 +98,3 @@
   margin-bottom:40px;
   text-align:center;
 }
-
-.features-clean .item .icon {
-  font-size:40px;
-  color:#1485ee;
-  float:left;
-  margin-left:-65px;
-}
-
-/***************************************************** 4th PAGE *****************************************************/
-
-/* CARDS */
-.clean-card .info {
-  padding:30px;
-}
-
-/* CARD TEXT BELOW IMAGE TITLE */
-/* TITLE */
-.clean-card h4 {
-  font-weight:600;
-  font-size:1em;
-}
-
-.card-title {
-  margin-bottom:.75rem;
-}
-
-/* SUBTITLE */
-.card-subtitle, .card-text:last-child {
-  margin-bottom:0;
-}
-
-.clean-card p {
-  opacity:.8;
-  font-size:.85em;
-  margin-bottom:.9em;
-}
-
-
